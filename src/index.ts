@@ -28,7 +28,7 @@ bot.command("start", async (ctx) => {
 });
 
 bot.command("help", async (ctx) => {
-	await ctx.reply("No-one can help you.");
+	await ctx.reply("NO-ONE can help you.");
 });
 
 bot.command("settings", async (ctx) => {

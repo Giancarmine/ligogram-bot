@@ -23,8 +23,14 @@ bot.command("start", async (ctx) => {
 	await bot.api.setMyCommands([
 		{ command: "start", description: "Start the bot" },
 		{ command: "help", description: "Show help text" },
+		{ command: "who", description: "Show who I'm" },
 		{ command: "settings", description: "Open settings" },
 	  ]);
+});
+
+bot.command("who", async (ctx) => {
+	const chatMember = await ctx.chatMembers.getChatMember();
+	await ctx.reply("Your name is: ${chatMember.user.first_name}");
 });
 
 bot.command("help", async (ctx) => {

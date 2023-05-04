@@ -29,8 +29,7 @@ bot.command("start", async (ctx) => {
 });
 
 bot.command("who", async (ctx) => {
-	const chatMember = await ctx.chatMembers.getChatMember();
-	await ctx.reply("Your name is: ${chatMember.user.first_name}");
+	await ctx.reply("Your name is: ${ctx.from.first_name}!");
 });
 
 bot.command("help", async (ctx) => {

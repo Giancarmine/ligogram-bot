@@ -34,7 +34,7 @@ bot.command("who", async (ctx) => {
 
 	const profilesPhotos = ctx.getUserProfilePhotos(ctx.from?.id);
 	await profilesPhotos.photos.forEach(photo => {
-		ctx.replyWithPhoto(photo.file_id);
+		ctx.replyWithPhoto(photo.file_unique_id);
 	});
 });
 

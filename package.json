@@ -12,6 +12,6 @@
     "deploy": "wrangler publish"
   },
   "dependencies": {
-    "grammy": "^1.15.3"
+    "grammy": "^1.16.0"
   }
 }

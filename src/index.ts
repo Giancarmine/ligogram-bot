@@ -33,7 +33,7 @@ bot.command("test", async (ctx) => {
 	const profilesPhotos = await ctx.getUserProfilePhotos(ctx.from.id);
 
 	const chooseInlineKeyboard = new InlineKeyboard()
-	.text("❌›", "nope")
+	.text("❌", "nope")
 	.text("✔️", "like");
   
 

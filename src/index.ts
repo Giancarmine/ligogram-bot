@@ -1,5 +1,6 @@
 // Note that we're importing from 'grammy/web', not 'grammy'.
 import { Bot, InlineKeyboard, Keyboard, webhookCallback } from "grammy/web";
+import handlers from "./handlers";
 
 const settingsKeyboard = new Keyboard()
 	.text("About you 👌").row()
@@ -56,15 +57,13 @@ bot.callbackQuery("choose-like", async (ctx) => {
 	});
 });
 
-bot.command("help", async (ctx) => {
-	await ctx.reply("NO-ONE can help you.");
-});
-
 bot.command("settings", async (ctx) => {
 	await ctx.reply("Make a change in your life:", {
 		reply_markup: settingsKeyboard,
 	  });
 });
+
+bot.use(handlers);
 
 // Catch errors and log them
 bot.catch(err => console.error(err))

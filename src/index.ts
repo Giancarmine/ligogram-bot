@@ -1,5 +1,5 @@
 // Note that we're importing from 'grammy/web', not 'grammy'.
-import { Bot, Context, Keyboard, webhookCallback } from "grammy/web";
+import { Bot, Context, InlineKeyboard, Keyboard, webhookCallback } from "grammy/web";
 
 const settingsKeyboard = new Keyboard()
 	.text("About you 👌").row()
@@ -15,8 +15,9 @@ bot.command("start", async (ctx) => {
 	await ctx.reply("Hello W!");
 	await bot.api.setMyCommands([
 		{ command: "start", description: "Start the bot" },
-		{ command: "help", description: "Show help text" },
 		{ command: "who", description: "Show who I'm" },
+		{ command: "test", description: "Show a test" },
+		{ command: "help", description: "Show help text" },
 		{ command: "settings", description: "Open settings" },
 	  ]);
 });
@@ -26,6 +27,21 @@ bot.command("who", async (ctx) => {
 
 	await ctx.replyWithPhoto(profilesPhotos.photos[0][0].file_id);
 	await ctx.reply(`Your name is: @${ctx.from?.first_name}`);
+});
+
+bot.command("test", async (ctx) => {
+	const profilesPhotos = await ctx.getUserProfilePhotos(ctx.from.id);
+
+	const chooseInlineKeyboard = new InlineKeyboard()
+	.text("❌›", "nope")
+	.text("✔️", "like");
+  
+
+	await ctx.replyWithPhoto(profilesPhotos.photos[0][0].file_id);
+	await ctx.reply(`Do you like @${ctx.from?.first_name}`, {
+		reply_markup: chooseInlineKeyboard,
+	  });
+	  
 });
 
 bot.command("help", async (ctx) => {

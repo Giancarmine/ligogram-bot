@@ -1,10 +1,15 @@
 // Note that we're importing from 'grammy/web', not 'grammy'.
-import { Bot, Context, InlineKeyboard, Keyboard, webhookCallback } from "grammy/web";
+import { Bot, InlineKeyboard, Keyboard, webhookCallback } from "grammy/web";
 
 const settingsKeyboard = new Keyboard()
 	.text("About you 👌").row()
 	.text("Language 👅")
 	.oneTime();
+
+
+	const chooseInlineKeyboard = new InlineKeyboard()
+	.text("❌", "choose_nope")
+	.text("✔️", "choose_like");
 
 // The following line of code assumes that you have configured the secrets BOT_TOKEN and BOT_INFO.
 // See https://developers.cloudflare.com/workers/platform/environment-variables/#secrets-on-deployed-workers.
@@ -30,18 +35,25 @@ bot.command("who", async (ctx) => {
 });
 
 bot.command("test", async (ctx) => {
-	const profilesPhotos = await ctx.getUserProfilePhotos(ctx.from.id);
-
-	const chooseInlineKeyboard = new InlineKeyboard()
-	.text("❌", "nope")
-	.text("✔️", "like");
-  
+	const profilesPhotos = await ctx.getUserProfilePhotos(ctx.from.id);  
 
 	await ctx.replyWithPhoto(profilesPhotos.photos[0][0].file_id);
 	await ctx.reply(`Do you like @${ctx.from?.first_name}`, {
 		reply_markup: chooseInlineKeyboard,
 	  });
-	  
+});
+
+// Wait for click events with specific callback data.
+bot.callbackQuery("choose-nope", async (ctx) => {
+	await ctx.answerCallbackQuery({
+		text: "Ohhh... You DON'T liked!",
+	});
+});
+
+bot.callbackQuery("choose-like", async (ctx) => {
+	await ctx.answerCallbackQuery({
+		text: "Ohhh... You DON'T liked ${ctx.callbackQuery.data}!",
+	});
 });
 
 bot.command("help", async (ctx) => {

@@ -3,7 +3,7 @@ import bot from "./core/bot";
 import "./handlers";
 
 bot.command("start", async (ctx) => {
-	await ctx.reply("Hello W!");
+	await ctx.reply(`${ctx.me.username} started!`);
 	await bot.api.setMyCommands([
 		{ command: "start", description: "Start the bot" },
 		{ command: "who", description: "Show who I'm" },
@@ -13,7 +13,6 @@ bot.command("start", async (ctx) => {
 	  ]);
 
 	console.log(`@${ctx.me.username} started!`)
-	console.error(`EORROR TEST!!!`)
 });
 
 // Catch errors and log them

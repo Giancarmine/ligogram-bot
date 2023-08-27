@@ -1,5 +1,4 @@
 import { Bot } from "grammy/web";
-import process from 'node:process';
 
 const bot_token :any = process.env["BOT_TOKEN"];
 

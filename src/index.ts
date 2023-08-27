@@ -2,11 +2,6 @@ import { InlineKeyboard, Keyboard, webhookCallback } from "grammy/web";
 import bot from "./core/bot";
 import "./handlers";
 
-const settingsKeyboard = new Keyboard()
-	.text("About you 👌").row()
-	.text("Language 👅")
-	.oneTime();
-
 const chooseInlineKeyboard = new InlineKeyboard()
 .text("❌", "choose-nope")
 .text("✔️", "choose-like");
@@ -49,12 +44,6 @@ bot.callbackQuery("choose-like", async (ctx) => {
 	await ctx.answerCallbackQuery({
 		text: `Ohhh... You DON'T liked ${ctx.callbackQuery.data}!`,
 	});
-});
-
-bot.command("settings", async (ctx) => {
-	await ctx.reply("Make a change in your life:", {
-		reply_markup: settingsKeyboard,
-	  });
 });
 
 // Catch errors and log them

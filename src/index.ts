@@ -1,6 +1,9 @@
+import { config } from "dotenv";
+config();
+
 // Note that we're importing from 'grammy/web', not 'grammy'.
 import { InlineKeyboard, Keyboard, webhookCallback } from "grammy/web";
-import bot from "./utils/bot";
+import bot from "./core/bot";
 import "./handlers";
 
 const settingsKeyboard = new Keyboard()

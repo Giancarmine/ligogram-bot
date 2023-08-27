@@ -13,6 +13,7 @@ bot.command("start", async (ctx) => {
 	  ]);
 
 	console.log(`@${ctx.me.username} started!`)
+	console.error(`EORROR TEST!!!`)
 });
 
 // Catch errors and log them

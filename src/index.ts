@@ -1,10 +1,6 @@
 import { webhookCallback } from "grammy/web";
 import bot from "./core/bot";
-import { handleErrors } from "./utils/errors";
-import logger from "./utils/logger";
 import "./handlers";
-
-handleErrors()
 
 bot.command("start", async (ctx) => {
 	await ctx.reply("Hello W!");
@@ -15,7 +11,11 @@ bot.command("start", async (ctx) => {
 		{ command: "help", description: "Show help text" },
 		{ command: "settings", description: "Open settings" },
 	  ]);
-	logger.info(`@${ctx.me?.username} started!`);
+
+	console.log(`@${ctx.me.username} started!`)
 });
+
+// Catch errors and log them
+bot.catch(err => console.error(err))
 
 addEventListener("fetch", webhookCallback(bot, "cloudflare"));

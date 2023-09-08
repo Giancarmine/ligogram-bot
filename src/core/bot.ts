@@ -3,4 +3,4 @@ import { BotContext } from "./context";
 
 const bot = new Bot<BotContext>(BOT_TOKEN);
 
-export default bot
+export default bot;

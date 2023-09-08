@@ -15,13 +15,18 @@ bot.command("q", async (ctx) => {
   console.log("sent poll #" + message.poll.id + " to user " + ctx.from?.id);
 });
 
-bot.on('poll_answer', async (ctx) => {
-  console.log(ctx.pollAnswer.user.first_name + " answered to poll " + ctx.pollAnswer.poll_id + " with option " + ctx.pollAnswer.option_ids)
+bot.on("poll_answer", async (ctx) => {
+  console.log(
+    ctx.pollAnswer.user.first_name +
+      " answered to poll " +
+      ctx.pollAnswer.poll_id +
+      " with option " +
+      ctx.pollAnswer.option_ids
+  );
 
   if (ctx.pollAnswer.option_ids.indexOf(correctAnswerId) > -1) {
     await bot.api.sendMessage(ctx.pollAnswer.user.id, "You're a genius!");
-  }
-  else {
+  } else {
     await bot.api.sendMessage(ctx.pollAnswer.user.id, "Almost correct!");
   }
 });

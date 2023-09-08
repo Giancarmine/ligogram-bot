@@ -10,7 +10,7 @@ bot.command("start", async (ctx) => {
 		{ command: "test", description: "Show a test" },
 		{ command: "help", description: "Show help text" },
 		{ command: "settings", description: "Open settings" },
-	  ]);
+	]);
 
 	console.log(`@${ctx.me.username} started!`)
 });

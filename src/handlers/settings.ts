@@ -9,5 +9,5 @@ const settingsKeyboard = new Keyboard()
 bot.command("settings", async (ctx) => {
 	await ctx.reply("Make a change in your life:", {
 		reply_markup: settingsKeyboard,
-	  });
+	});
 });

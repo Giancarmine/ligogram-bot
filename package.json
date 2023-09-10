@@ -13,7 +13,7 @@
   "private": true,
   "scripts": {
     "start": "wrangler dev",
-    "deploy": "wrangler publish"
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
     "@grammyjs/parse-mode": "^1.7.1",

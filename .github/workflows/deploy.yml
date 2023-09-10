@@ -15,3 +15,4 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
+          command: deploy --name ligogram-bot --var BOT_TOKEN:${{ secrets.BOT_PROD_TOKEN }}

@@ -8,11 +8,11 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy
+    name: Deploy Test
     steps:
       - uses: actions/checkout@v3
       - name: Deploy Test
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          command: deploy --name ligogram-test-bot
+          command: deploy --name ligogram-test-bot --var BOT_TOKEN:${{ BOT_TEST_TOKEN }}

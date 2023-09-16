@@ -23,6 +23,6 @@ bot.callbackQuery("choose-nope", async (ctx) => {
 
 bot.callbackQuery("choose-like", async (ctx) => {
   await ctx.answerCallbackQuery({
-    text: `Ohhh... You DON'T liked ${ctx.callbackQuery.data}!`,
+    text: `You liked ${ctx.callbackQuery.data}!`,
   });
 });

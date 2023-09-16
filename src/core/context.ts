@@ -1,3 +1,4 @@
-import { Context } from "grammy";
+import { I18nFlavor } from '@grammyjs/i18n';
+import { Context } from 'grammy';
 
-export type BotContext = Context;
+export type BotContext = Context & I18nFlavor;

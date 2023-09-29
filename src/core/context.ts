@@ -1,3 +1,5 @@
-import { Context } from 'grammy';
+import { Context } from "grammy";
+import { FluentContextFlavor } from "@grammyjs/fluent";
 
-export type BotContext = Context;
+// Extend your application context type with the provided flavor interface.
+export type MyAppContext = Context & FluentContextFlavor;

@@ -9,7 +9,7 @@ const bot = new Bot<BotContext>(BOT_TOKEN);
 const fluent = new Fluent();
 
 // Add translations that you need
-await fluent.addTranslation({
+fluent.addTranslation({
   locales: 'en',
   source: `
   -bot-name = Ligogram-bot

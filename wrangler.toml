@@ -2,3 +2,4 @@ account_id = 'e188b491750a8cb1e1c3d16907ed3aa2'
 name = "ligogram-bot"
 main = "src/index.ts"
 compatibility_date = "2023-04-18"
+node_compat = true

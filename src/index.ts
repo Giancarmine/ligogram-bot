@@ -3,7 +3,9 @@ import bot from './core/bot';
 import './handlers';
 
 bot.command('start', async (ctx) => {
-  await ctx.reply(ctx.t("welcome"));
+  await ctx.fluent.useLocale('en');
+
+  await ctx.reply(ctx.t('welcome'));
   await bot.api.setMyCommands([
     { command: 'start', description: 'Start the bot' },
     { command: 'who', description: "Show who I'm" },

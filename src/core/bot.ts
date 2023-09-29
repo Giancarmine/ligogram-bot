@@ -10,7 +10,7 @@ const fluent = new Fluent();
 
 // Add translations that you need
 fluent.addTranslation({
-  locales: 'it',
+  locales: 'en',
   source: `
   -bot-name = Ligogram-bot
 

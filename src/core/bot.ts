@@ -11,13 +11,13 @@ const fluent = new Fluent();
 // Add translations that you need
 fluent.addTranslation({
   locales: 'en',
-  source: (`
-  -bot-name = Ligogram-bot
+  // source: (`
+  // -bot-name = Ligogram-bot
 
-  welcome = Welcome, {-bot-name} is alive!
-  `),
+  // welcome = Welcome, {-bot-name} is alive!
+  // `),
 
-  // source: (`welcome = Welcome!`),
+  source: (`welcome = Welcome in {-bot-name}!`),
   // All the aspects of Fluent are highly configurable
   bundleOptions: {
     // Use this option to avoid invisible characters

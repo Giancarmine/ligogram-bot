@@ -1,5 +1,5 @@
-import bot from "../core/bot";
+import bot from '../core/bot';
 
-bot.command("help", async (ctx) => {
-	await ctx.reply(ctx.t("help"));
+bot.command('help', async (ctx) => {
+  await ctx.reply('NO-ONE can help you.');
 });
